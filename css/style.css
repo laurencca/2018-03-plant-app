@@ -1,0 +1,28 @@
+header {
+    text-align: center;
+}
+
+thead th {
+    border-bottom: 1px solid black;
+}
+
+.hide {
+    empty-cells: hide;
+}
+
+th, td {
+    padding: 5px;
+}
+
+th {
+    text-align: left;
+}
+
+.even {
+    background-color: #FFFBB3;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+}
