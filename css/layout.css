@@ -7,12 +7,23 @@ body {
     justify-content: space-between;
 }
 
+#main-menu li {
+    display: inline;
+    align-content: center;
+}
+
 section {
     display: flex;
     justify-content: center;
     padding: 5px;
     margin: 0;
     padding: 0;
+}
+
+article {
+    background: rgba(180, 180, 180, 0.5);
+    border: 3px solid floralwhite;
+    border-radius: 5px;
 }
 
 h1, h3, p, ul, li {
@@ -22,8 +33,6 @@ h1, h3, p, ul, li {
 h1, h3, p {
     font-family: 'Proza Libre', sans-serif;
     text-align: center;
-    border: 3px floralwhite;
-    border-radius: 5px;
 }
 
 ul, li {
