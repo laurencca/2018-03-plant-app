@@ -1,0 +1,43 @@
+body {
+    background-image: url(https://cdn.pixabay.com/photo/2017/11/29/11/03/ecology-2985781_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3, p, ul, li {
+    color: #FFF;
+}
+
+h1, h3, p {
+    font-family: 'Proza Libre', sans-serif;
+    text-align: center;
+    border: 3px floralwhite;
+    border-radius: 5px;
+}
+
+ul, li {
+    font-family: 'Taviraj', serif;
+    list-style: none;
+}
+
+li a {
+    display: inline;
+    color: floralwhite;
+    text-align: center;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: lightslategray;
+}
