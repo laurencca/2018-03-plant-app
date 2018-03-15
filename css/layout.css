@@ -1,66 +1,57 @@
-header, section, footer, nav {
-  display: block;
+body {
+    background-image: url(https://cdn.pixabay.com/photo/2017/11/29/11/03/ecology-2985781_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.article-aside {
-  display: inline-block;
-  /* background-image: url("../images/ecology.jpg"); */
+header {
+    text-align: right;
+}
+
+#main-menu li {
+    display: inline;
+    align-content: center;
+    margin: 0 auto;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 0;
+    padding: 0;
 }
 
 article {
-  display: inline-block;
-
-  vertical-align: top;
-  width: 450px;
-  height: auto;
-  margin: 10px;
-  padding: 5px;
+    background: rgba(180, 180, 180, 0.5);
+    border: 3px solid floralwhite;
+    border-radius: 5px;
 }
 
-aside {
-  display: inline-block;
-  width: 200px;
-  height: auto;
-  margin: 10px;
-  padding: 5px;
+h1, h3, p, ul, li {
+    color: #FFF;
 }
 
-nav ul {
-  width: auto;
-  text-align: center;
-  margin: auto;
-  background-color: grey;
+h1, h3, p {
+    font-family: 'Proza Libre', sans-serif;
+    text-align: center;
 }
 
-nav li {
-  display: inline;
-  list-style-type: none;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  margin-right: 100px;
-  padding: 0;
+ul, li {
+    font-family: 'Taviraj', serif;
+    list-style: none;
 }
 
-body {
-  background-color: #94b8b8;
-  font-family: 'Montserrat', sans-serif;
-  border-style: solid;
-  border-color: white;
-  border-width: 5px;
-  margin: 20px;
-  padding: 20px;
+li a {
+    display: inline;
+    color: floralwhite;
+    text-align: center;
+    text-decoration: none;
 }
 
-h1, h2 {
-  text-align: center;
-}
-
-p {
-
-}
-
-footer {
-  padding: 30px;
-  text-align: center;
+li a:hover {
+    color: lightslategray;
 }
