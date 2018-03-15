@@ -7,9 +7,14 @@ body {
     justify-content: space-between;
 }
 
+header {
+    text-align: right;
+}
+
 #main-menu li {
     display: inline;
     align-content: center;
+    margin: 0 auto;
 }
 
 section {
