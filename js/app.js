@@ -23,14 +23,16 @@ const schedule = {
             new Plant('rose', 'flower', '', 1),
             new Plant('daylily', 'flower', '', 3),
             new Plant('violet', 'flower', '', 2),
-            new Plant('peony', 'flower', '', 1),                 
+            new Plant('peony', 'flower', '', 1),                
         )
+
+        schedule.determineWaterDays();
     },
 
     determineWaterDays: function () {
-        for (let i = 0; i < this.selectedPlants.length; i++) {
-            if (schedule.plants.freqOfWatering = 1) {
-                console.log('water on: ', daysOfWeek[0]);
+        for (let i = 0; i < schedule.plants.length; i++) {
+            if (schedule.plants[i].freqOfWatering === 1) {
+                console.log('water ', schedule.plants[i].name, 'on ', daysOfWeek[0]);
             }
         }
     }
