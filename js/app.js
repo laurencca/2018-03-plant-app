@@ -1,42 +1,61 @@
-var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+'use strict';
 
-var waterTable = document.getElementById("schedule");
-
-var Plant = function (name, type, owned, waterCycle) {
+function Plant (name, type, filepath, freqOfWatering) {
     this.name = name;
     this.type = type;
-    this.owned = buildGarden();
-    this.waterCyle = waterCycle;
+    this.filepath = filepath;
+    this.freqOfWatering = freqOfWatering;
 }
 
+const schedule = {
+    plants: [],
+    selectedPlants: [],
+    start: function () {
+        schedule.plants.push(
+            new Plant('tomato', 'veg', '', 2),
+            new Plant('lettuce', 'veg', '', 2),
+            new Plant('peas', 'veg', '', 4),
+            new Plant('corn', 'veg', '', 7),
+            new Plant('squash', 'veg', '', 1),
+            new Plant('iris', 'flower', '', 3),
+            new Plant('rose', 'flower', '', 1),
+            new Plant('daylily', 'flower', '', 3),
+            new Plant('violet', 'flower', '', 2),
+            new Plant('peony', 'flower', '', 14),                 
+        )
+    }
+}
+
+var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+var table = document.getElementById("schedule").firstChild;
+
 function buildGarden() {
-    var ownership = document.forms[0];
+    var ownership = document.getElementsByClassName("plants");
     var txt = "";
     for (var index = 0; index < ownership.length; index++) {
         if (ownership[index].checked) {
-            txt = txt + ownership[index].value + " ";
+           
         }
     }
 
-var plantsArray = [];
-    if (localStorage.getItem("plantsArray") == null) {
-        plantsArray.push(
-            new Plant("Tomato", "veggie", false, 2),
-            new Plant("Lettuce", "veggie", false, 4),
-            new Plant("Peas", "veggie", false, 7),
-            new Plant("Corn", "veggie", false, 6),
-            new Plant("Squash", "veggie", false, 3),
-            new Plant("Iris", "flower", false, 5),
-            new Plant("Rose", "flower", false, 2),
-            new Plant("Daylily", "flower", false, 7),
-            new Plant("Violet", "flower", false, 4),
-            new Plant("Peony", "flower", false, 14)
-        )
-    }
+
+//     var html = "";
+//     for (var index = 0; index < selectedPlants.length; index++){
+//     html +="<tr>"+
+//             "<td>"+ (index+1) + "</td>"+
+//             "<td>"+ data[index].name + "</td>"+
+//             "<td>"+ data[index].number + "</td>"+
+//             "<td>"+ data[index].city + "</td>"+
+//             "<td>"+ data[index].hobby + "</td>"+
+//             "<td>"+ data[index].birthdate + "</td>"+"<td><button data-arrayIndex='"+ i +"' onclick='editData(this)'>Edit</button><button data-arrayIndex='"+ i +"' onclick='deleteData()'>Delete</button></td>"+"</tr>";
+// }
+
+
 
 
 function dayHeader() {
-    var rowDay = document.createElement("tr");
+    var rowDay = document.createElement("th");
     table.appendChild(rowDay);
     var cellLocation = document.createElement("td");
     cellLocation.textContent = "";
@@ -50,26 +69,27 @@ function dayHeader() {
 }
 
 function makeTable() { 
-    waterTable.textContent = "";
+    table.textContent = "";
     dayHeader();
-    for (var plantIndex = 0; plantIndex < plantLocations.length; plantIndex++) {
-        var store = plantLocations[plantIndex]
-        var storeRow = document.createElement("tr");
+    for (var plantIndex = 0; plantIndex < selectedPlants.length; plantIndex++) {
+        var plant = selectedPlants[plantIndex]
+        var plantRow = document.createElement("tr");
         var cell = document.createElement("td");
-        cell.textContent = store.name;
-        storeRow.appendChild(cell);
-        table.appendChild(storeRow);
+        cell.textContent = plant.name;
+        plantRow.appendChild(cell);
+        table.appendChild(plantRow);
 
-        var plantTotal = 0;
-        for (var index = 0; index < timeOfDay.length; index++) {
-            var cell = document.createElement("td");
-            var plantResults = store.getplantsPerHour();
-            cell.textContent = plantResults;
-            storeRow.appendChild(cell);
-            plantTotal += plantResults;
+        // var plantTotal = 0;
+        // for (var index = 0; index < daysOfWeek.length; index++) {
+        //     var cell = document.createElement("td");
+        //     var plantResults = store.getplantsPerHour();
+        //     cell.textContent = plantResults;
+        //     storeRow.appendChild(cell);
+        //     plantTotal += plantResults;
         }
-        var cellTotal = document.createElement("td");
-        cellTotal.textContent = plantTotal;
-        storeRow.appendChild(cellTotal);
     }
 }
+
+// makeTable();
+
+window.addEventListener('load', schedule.start)
