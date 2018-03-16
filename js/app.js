@@ -1,11 +1,12 @@
 'use strict';
 
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 function Plant (name, type, filepath, freqOfWatering) {
     this.name = name;
     this.type = type;
     this.filepath = filepath;
     this.freqOfWatering = freqOfWatering;
-    this.daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 }
 
 const schedule = {
@@ -27,7 +28,11 @@ const schedule = {
     },
 
     determineWaterDays: function () {
-
+        for (let i = 0; i < this.selectedPlants.length; i++) {
+            if (schedule.plants.freqOfWatering = 1) {
+                console.log('water on: ', daysOfWeek[0]);
+            }
+        }
     }
 }
 
