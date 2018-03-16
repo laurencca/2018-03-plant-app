@@ -23,12 +23,13 @@ const schedule = {
             new Plant('violet', 'flower', '', 2),
             new Plant('peony', 'flower', '', 14),                 
         )
+        makeTable();
     }
 }
 
-var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+// var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-var table = document.getElementById("schedule").firstChild;
+
 
 function buildGarden() {
     var ownership = document.getElementsByClassName("plants");
@@ -38,8 +39,7 @@ function buildGarden() {
            
         }
     }
-
-
+}
 //     var html = "";
 //     for (var index = 0; index < selectedPlants.length; index++){
 //     html +="<tr>"+
@@ -52,44 +52,35 @@ function buildGarden() {
 // }
 
 
+// function dayHeader() {
+//     var rowDay = document.createElement("th");
+//     table.appendChild(rowDay);
+//     var cellLocation = document.createElement("td");
+//     cellLocation.textContent = "";
+//     rowDay.appendChild(cellLocation);
 
-
-function dayHeader() {
-    var rowDay = document.createElement("th");
-    table.appendChild(rowDay);
-    var cellLocation = document.createElement("td");
-    cellLocation.textContent = "";
-    rowDay.appendChild(cellLocation);
-
-    for (var dayIndex = 0; dayIndex < daysOfWeek.length; dayIndex++) {
-        var cell = document.createElement("td");
-        cell.textContent = daysOfWeek[dayIndex];
-        rowDay.appendChild(cell);
-        }
-}
+//     for (var dayIndex = 0; dayIndex < daysOfWeek.length; dayIndex++) {
+//         var cell = document.createElement("td");
+//         cell.textContent = daysOfWeek[dayIndex];
+//         rowDay.appendChild(cell);
+//         }
+// }
 
 function makeTable() { 
-    table.textContent = "";
-    dayHeader();
-    for (var plantIndex = 0; plantIndex < selectedPlants.length; plantIndex++) {
-        var plant = selectedPlants[plantIndex]
-        var plantRow = document.createElement("tr");
+    debugger;
+    // var table = document.getElementById("schedule");
+    // table.innerHTML = "";
+    var plantRow = document.getElementsByTagName("tr");
+    console.log(schedule.plants);
+    for (var plantIndex = 0; plantIndex < schedule.plants.length; plantIndex++) {
+        var plant = schedule.plants[plantIndex];
+        console.log(plant);
         var cell = document.createElement("td");
         cell.textContent = plant.name;
-        plantRow.appendChild(cell);
-        table.appendChild(plantRow);
+        plantRow[1].appendChild(cell);
 
-        // var plantTotal = 0;
-        // for (var index = 0; index < daysOfWeek.length; index++) {
-        //     var cell = document.createElement("td");
-        //     var plantResults = store.getplantsPerHour();
-        //     cell.textContent = plantResults;
-        //     storeRow.appendChild(cell);
-        //     plantTotal += plantResults;
-        }
     }
 }
 
-// makeTable();
-
 window.addEventListener('load', schedule.start)
+// makeTable();
