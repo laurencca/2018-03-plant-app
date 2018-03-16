@@ -5,6 +5,7 @@ function Plant (name, type, filepath, freqOfWatering) {
     this.type = type;
     this.filepath = filepath;
     this.freqOfWatering = freqOfWatering;
+    this.daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 }
 
 const schedule = {
@@ -23,6 +24,10 @@ const schedule = {
             new Plant('violet', 'flower', '', 2),
             new Plant('peony', 'flower', '', 1),                 
         )
+    },
+
+    determineWaterDays: function () {
+
     }
 }
 
