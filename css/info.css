@@ -1,0 +1,66 @@
+header, section, footer, nav {
+  display: block;
+}
+
+.article-aside {
+  display: inline-block;
+  /* background-image: url("../images/ecology.jpg"); */
+}
+
+article {
+  display: inline-block;
+
+  vertical-align: top;
+  width: 450px;
+  height: auto;
+  margin: 10px;
+  padding: 5px;
+}
+
+aside {
+  display: inline-block;
+  width: 200px;
+  height: auto;
+  margin: 10px;
+  padding: 5px;
+}
+
+nav ul {
+  width: auto;
+  text-align: center;
+  margin: auto;
+  background-color: grey;
+}
+
+nav li {
+  display: inline;
+  list-style-type: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 100px;
+  padding: 0;
+}
+
+body {
+  background-color: #94b8b8;
+  font-family: 'Montserrat', sans-serif;
+  border-style: solid;
+  border-color: white;
+  border-width: 5px;
+  margin: 20px;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+p {
+
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+}
