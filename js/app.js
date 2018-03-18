@@ -7,7 +7,7 @@ var table = document.getElementById("schedule");
 function Plant (name, type, filepath, freqOfWatering) {
     this.name = name;
     this.type = type;
-    this.filePath = filePath;
+    // this.filePath = filePath;
     this.freqOfWatering = freqOfWatering;
 }
 
@@ -16,7 +16,7 @@ const schedule = {
     selectedPlants: [],
     start: function () {
         schedule.plants.push(
-            new Plant('Tomato', 'veg', '', 2),
+            new Plant('Tomato', 'veg', 'images/tomato.jpg', 2),
             new Plant('Lettuce', 'veg', '', 2),
             new Plant('Peas', 'veg', '', 4),
             new Plant('Corn', 'veg', '', 1),
@@ -53,11 +53,11 @@ const schedule = {
 function dayHeader() {
     var weekRow = document.createElement("tr");
     table.appendChild(weekRow);
-    var cellSpace = document.createElement("td");
+    var cellSpace = document.createElement("th");
     cellSpace.textContent = "";
     weekRow.appendChild(cellSpace);
     for (var weekIndex = 0; weekIndex < daysOfWeek.length; weekIndex++) {
-        var cellDay = document.createElement("td");
+        var cellDay = document.createElement("th");
         cellDay.textContent = daysOfWeek[weekIndex];
         weekRow.appendChild(cellDay);
     }
