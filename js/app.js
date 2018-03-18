@@ -13,7 +13,6 @@ weekday[5] = "Friday";
 weekday[6] = "Saturday";
 
 var currentDay = weekday[day.getDay()];
-// document.getElementById("schedule").innerHTML = currentDay;
 
 var table = document.getElementById("schedule");
 
@@ -73,11 +72,10 @@ function dayHeader() {
         var cellDay = document.createElement("td");
         cellDay.textContent = weekday[day.getDay()];
         weekRow.appendChild(cellDay);
+        // number of milliseconds in a day so that it updates daily
         day.setTime(day.getTime() + 86400000);
     }
 }
-
-8640000
 
 function makeTable() {
     table.textContent = "";

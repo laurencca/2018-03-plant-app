@@ -55,7 +55,7 @@ h1, h2, h3, p, ul, li {
   color: #FFF;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, p, table {
   font-family: 'Proza Libre', sans-serif;
   text-align: center;
 }
