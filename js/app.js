@@ -2,10 +2,12 @@
 
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+var table = document.getElementById("schedule");
+
 function Plant (name, type, filepath, freqOfWatering) {
     this.name = name;
     this.type = type;
-    this.filepath = filepath;
+    this.filePath = filePath;
     this.freqOfWatering = freqOfWatering;
 }
 
@@ -14,18 +16,18 @@ const schedule = {
     selectedPlants: [],
     start: function () {
         schedule.plants.push(
-            new Plant('tomato', 'veg', '', 2),
-            new Plant('lettuce', 'veg', '', 2),
-            new Plant('peas', 'veg', '', 4),
-            new Plant('corn', 'veg', '', 1),
-            new Plant('squash', 'veg', '', 1),
-            new Plant('iris', 'flower', '', 1),
-            new Plant('rose', 'flower', '', 1),
-            new Plant('daylily', 'flower', '', 3),
-            new Plant('violet', 'flower', '', 2),
-            new Plant('peony', 'flower', '', 1),                
+            new Plant('Tomato', 'veg', '', 2),
+            new Plant('Lettuce', 'veg', '', 2),
+            new Plant('Peas', 'veg', '', 4),
+            new Plant('Corn', 'veg', '', 1),
+            new Plant('Squash', 'veg', '', 1),
+            new Plant('Iris', 'flower', '', 1),
+            new Plant('Rose', 'flower', '', 1),
+            new Plant('Daylily', 'flower', '', 3),
+            new Plant('Violet', 'flower', '', 2),
+            new Plant('Peony', 'flower', '', 1),                
         )
-
+        makeTable();
         schedule.determineWaterDays();
     },
 
@@ -46,5 +48,32 @@ const schedule = {
         }
     }
 }
+
+
+function dayHeader() {
+    var weekRow = document.createElement("tr");
+    table.appendChild(weekRow);
+    var cellSpace = document.createElement("td");
+    cellSpace.textContent = "";
+    weekRow.appendChild(cellSpace);
+    for (var weekIndex = 0; weekIndex < daysOfWeek.length; weekIndex++) {
+        var cellDay = document.createElement("td");
+        cellDay.textContent = daysOfWeek[weekIndex];
+        weekRow.appendChild(cellDay);
+    }
+}
+
+function makeTable() {  
+    table.textContent = "";
+    dayHeader();
+    for (var plantIndex = 0; plantIndex < schedule.plants.length; plantIndex++) {
+        var plants = schedule.plants[plantIndex];
+        var plantsRow = document.createElement("tr");
+        var cell = document.createElement("td");
+        cell.textContent = plants.name;
+        plantsRow.appendChild(cell);
+        table.appendChild(plantsRow);
+        }
+    }
 
 window.addEventListener('load', schedule.start)
