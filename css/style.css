@@ -1,28 +1,57 @@
+body {
+    background-image: url(https://cdn.pixabay.com/photo/2017/11/29/11/03/ecology-2985781_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 header {
-    text-align: center;
+    text-align: right;
 }
 
-thead th {
-    border-bottom: 1px solid black;
+#main-menu li {
+    display: inline;
+    align-content: center;
+    margin: 0 auto;
 }
 
-.hide {
-    empty-cells: hide;
-}
-
-th, td {
+section {
+    display: flex;
+    justify-content: center;
     padding: 5px;
+    margin: 0;
+    padding: 0;
 }
 
-th {
-    text-align: left;
+article {
+    background: rgba(180, 180, 180, 0.5);
+    border: 3px solid floralwhite;
+    border-radius: 5px;
 }
 
-.even {
-    background-color: #FFFBB3;
+h1, h3, p, ul, li {
+    color: #FFF;
 }
 
-footer {
+h1, h3, p {
+    font-family: 'Proza Libre', sans-serif;
     text-align: center;
-    padding: 15px;
+}
+
+ul, li {
+    font-family: 'Taviraj', serif;
+    list-style: none;
+}
+
+li a {
+    display: inline;
+    color: floralwhite;
+    text-align: center;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: lightslategray;
 }
