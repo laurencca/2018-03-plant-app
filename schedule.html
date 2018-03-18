@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+        <link href="https://fonts.googleapis.com/css?family=Proza+Libre|Taviraj" rel="stylesheet">
+        <title>Thirsty Thistles</title>
+      </head>      
 
-<head>
-  <link rel="stylesheet" type="text/css" href="./css/style.css" />
-  <link rel="stylesheet" type="text/css" href="./css/layout.css" />
-  <link href="https://fonts.googleapis.com/css?family=Proza+Libre|Taviraj" rel="stylesheet">
-  <title>Thirsty Thistles</title>
-</head>
-
-<body>
-
-  <header>
-    <h1>Thirsty Thistles</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="schedule.html">Watering Schedule</a></li>
-        <li><a href="info.html">Info</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <div>
-      <h2>Watering Schedule</h2>
-      <table id="schedule">
-        <tbody></tbody>
-      </table>
-    </div>
-  </main>
-  
-  <footer>
-    &copy; 2018 Plant People
-  </footer>
-
-  <script type="text/javascript" src="js/app.js"></script>
-
-</body>
-
+    <body>
+        <header>
+            <h1>Thirsty Thistles</h1>
+            <nav>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="schedule.html">Watering Schedule</a></li>
+                <li><a href="info.html">Info</a></li>
+              </ul>
+            </nav>
+          </header>
+          <main>
+            <div>
+              <h2>Watering Schedule</h2>
+              <table id="schedule">
+                <tbody></tbody>
+              </table>
+              <br/>
+              <div id="weather">
+                <a class="weatherwidget-io" href="https://forecast7.com/en/45d53n122d65/97232/?unit=us" data-label_1="PORTLAND" data-label_2="WEATHER" data-mode="Forecast" >PORTLAND WEATHER</a>
+                <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
+                </div>
+            </div>
+        </main>
+        <script type="text/javascript" src="js/app.js"></script>
+        <footer>
+            &copy; 2018 Plant People
+        </footer>
+    </body>
 </html>

@@ -2,9 +2,13 @@ body {
   background-image: url(https://cdn.pixabay.com/photo/2017/11/29/11/03/ecology-2985781_960_720.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  /* display: flex;
-  flex-wrap: wrap; */
   justify-content: space-between;
+}
+
+#weather {
+  background: rgba(180, 180, 180, 0.5);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
 }
 
 /* #main-menu li {
@@ -43,11 +47,15 @@ article {
   border-radius: 5px;
 }
 
+table {
+  color: #FFF;
+}
+
 h1, h2, h3, p, ul, li {
   color: #FFF;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, p, table {
   font-family: 'Proza Libre', sans-serif;
   text-align: center;
 }
