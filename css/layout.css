@@ -24,6 +24,8 @@ th {
 }
 
 footer {
+  margin: auto;
   text-align: center;
+  color: white;
   padding: 15px;
 }

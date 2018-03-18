@@ -4,7 +4,7 @@ const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Fri
 
 var table = document.getElementById("schedule");
 
-function Plant (name, type, filepath, freqOfWatering) {
+function Plant (name, type, filePath, freqOfWatering) {
     this.name = name;
     this.type = type;
     this.filePath = filePath;
@@ -25,7 +25,7 @@ const schedule = {
             new Plant('Rose', 'flower', '', 1),
             new Plant('Daylily', 'flower', '', 3),
             new Plant('Violet', 'flower', '', 2),
-            new Plant('Peony', 'flower', '', 1),                
+            new Plant('Peony', 'flower', '', 1),
         )
         makeTable();
         schedule.determineWaterDays();
@@ -63,7 +63,7 @@ function dayHeader() {
     }
 }
 
-function makeTable() {  
+function makeTable() {
     table.textContent = "";
     dayHeader();
     for (var plantIndex = 0; plantIndex < schedule.plants.length; plantIndex++) {
