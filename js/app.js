@@ -1,6 +1,10 @@
 'use strict';
 
-function Plant (name, type, filePath, freqOfWatering) {
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+var table = document.getElementById("schedule");
+
+function Plant (name, type, filepath, freqOfWatering) {
     this.name = name;
     this.type = type;
     this.filePath = filePath;
@@ -15,25 +19,39 @@ const schedule = {
             new Plant('Tomato', 'veg', '', 2),
             new Plant('Lettuce', 'veg', '', 2),
             new Plant('Peas', 'veg', '', 4),
-            new Plant('Corn', 'veg', '', 7),
+            new Plant('Corn', 'veg', '', 1),
             new Plant('Squash', 'veg', '', 1),
-            new Plant('Iris', 'flower', '', 3),
+            new Plant('Iris', 'flower', '', 1),
             new Plant('Rose', 'flower', '', 1),
             new Plant('Daylily', 'flower', '', 3),
             new Plant('Violet', 'flower', '', 2),
-            new Plant('Peony', 'flower', '', 14),                 
+            new Plant('Peony', 'flower', '', 1),                
         )
         makeTable();
+        schedule.determineWaterDays();
+    },
+
+    determineWaterDays: function () {
+        for (let i = 0; i < schedule.plants.length; i++) {
+            if (schedule.plants[i].freqOfWatering === 1) {
+                console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0]);
+            }
+            if (schedule.plants[i].freqOfWatering === 2) {
+                console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0], 'and', daysOfWeek[3]);
+            }
+            if (schedule.plants[i].freqOfWatering === 3) {
+                console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0], daysOfWeek[2], 'and', daysOfWeek[5]);
+            }
+            if (schedule.plants[i].freqOfWatering === 4) {
+                console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0], daysOfWeek[2], daysOfWeek[4], 'and', daysOfWeek[6]);
+            }
+        }
     }
 }
 
-var table = document.getElementById("schedule");
-
-var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 function dayHeader() {
     var weekRow = document.createElement("tr");
-    console.log(table);
     table.appendChild(weekRow);
     var cellSpace = document.createElement("td");
     cellSpace.textContent = "";
@@ -49,7 +67,6 @@ function makeTable() {
     table.textContent = "";
     dayHeader();
     for (var plantIndex = 0; plantIndex < schedule.plants.length; plantIndex++) {
-        console.log("in loop");
         var plants = schedule.plants[plantIndex];
         var plantsRow = document.createElement("tr");
         var cell = document.createElement("td");
@@ -58,17 +75,5 @@ function makeTable() {
         table.appendChild(plantsRow);
         }
     }
-//     var table = document.createElement("table");
-//     var plants = "";   
-//     var rows = 10;
-//     var columns = 7;
-//     for (var plantRow = 0; plantRow < rows; plantRow++) {
-//         plants += "<tr>";
-//         for (var dayColumn = 1; dayColumn < columns; dayColumn++) {
-//             plants += "<td>" + dayColumn + "</td>";
-//         }
-//         plants += "</tr>"
-//     }        
-//     console.log(plants);
 
 window.addEventListener('load', schedule.start)

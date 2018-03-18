@@ -1,28 +1,70 @@
-header {
-    text-align: center;
+body {
+  background-image: url(https://cdn.pixabay.com/photo/2017/11/29/11/03/ecology-2985781_960_720.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-thead th {
-    border-bottom: 1px solid black;
+/* #main-menu li {
+  display: inline;
+  align-content: center;
+  margin: 0 auto;
+} */
+
+nav ul {
+  margin: auto;
+  text-align: center;
+  padding: 0px 0px 20px 0px;
 }
 
-.hide {
-    empty-cells: hide;
+nav li {
+  display: inline;
+  list-style-type: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 40px;
+  padding: 0;
 }
 
-th, td {
-    padding: 5px;
+section {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 0;
+  padding: 0;
 }
 
-th {
-    text-align: left;
+article {
+  background: rgba(180, 180, 180, 0.5);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
 }
 
-.even {
-    background-color: #FFFBB3;
+
+h1, h3, p, ul, li {
+  color: #FFF;
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
+h1, h3, p {
+  font-family: 'Proza Libre', sans-serif;
+  text-align: center;
+}
+
+ul, li {
+  font-family: 'Proza Libre', sans-serif;
+  list-style: none;
+}
+
+li a {
+  display: inline;
+  color: floralwhite;
+  text-align: center;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: lightslategray;
 }
