@@ -109,11 +109,11 @@ function makeTable() {
     // console.log('make table');
     table.textContent = "";
     dayHeader();
-    for (var plantIndex = 0; plantIndex < schedule.plants.length; plantIndex++) {
-        var plants = schedule.plants[plantIndex];
+    for (var plantIndex = 0; plantIndex < schedule.selectedPlants.length; plantIndex++) {
+        var plants = schedule.selectedPlants[plantIndex];
         var plantsRow = document.createElement("tr");
-        var cell = document.createElement("td");
-        cell.textContent = plants.name;
+        var cell = document.createElement("th");
+        cell.textContent = schedule.selectedPlants.name;
         plantsRow.appendChild(cell);
         table.appendChild(plantsRow);
         }
