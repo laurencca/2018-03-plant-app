@@ -27,8 +27,29 @@ const schedule = {
             new Plant('Violet', 'flower', '', 2),
             new Plant('Peony', 'flower', '', 1),                
         )
+
+        const form = document.getElementById('form');
+        if (form) {
+            form.addEventListener('submit', schedule.storeData);
+        }
+
         makeTable();
         schedule.determineWaterDays();
+    },
+
+    storeData: function(event) {
+        event.preventDefault();
+        console.log(event.target.veg);
+        for (let i = 0; i < event.target.veg.length; i++) {
+            const checkbox = event.target.veg[i];
+            if (checkbox.checked) {
+                const correspondingPlant = schedule.plants[i];
+                schedule.selectedPlants.push(correspondingPlant);
+            }
+        }
+        // localStorage.setItem
+        console.log(schedule.selectedPlants);
+        console.log(schedule.plants);
     },
 
     determineWaterDays: function () {
@@ -64,6 +85,7 @@ function dayHeader() {
 }
 
 function makeTable() {  
+    console.log('make table');
     table.textContent = "";
     dayHeader();
     for (var plantIndex = 0; plantIndex < schedule.plants.length; plantIndex++) {
@@ -74,6 +96,6 @@ function makeTable() {
         plantsRow.appendChild(cell);
         table.appendChild(plantsRow);
         }
-    }
+}
 
 window.addEventListener('load', schedule.start)
