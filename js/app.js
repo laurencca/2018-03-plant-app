@@ -38,7 +38,7 @@ const schedule = {
             new Plant('Rose', 'flower', '', 1),
             new Plant('Daylily', 'flower', '', 3),
             new Plant('Violet', 'flower', '', 2),
-            new Plant('Peony', 'flower', '', 1),                
+            new Plant('Peony', 'flower', '', 1),
         )
         makeTable();
         schedule.determineWaterDays();
@@ -76,7 +76,7 @@ function dayHeader() {
     }
 }
 
-function makeTable() {  
+function makeTable() {
     table.textContent = "";
     dayHeader();
     for (var plantIndex = 0; plantIndex < schedule.plants.length; plantIndex++) {
