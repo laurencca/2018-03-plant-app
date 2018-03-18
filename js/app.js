@@ -28,12 +28,20 @@ const schedule = {
             new Plant('Peony', 'flower', '', 1),                
         )
 
+        const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
+        if (selectedPlants) {
+            schedule.selectedPlants = selectedPlants;
+            console.log('local storage', localStorage.getItem('selectedPlants'));
+        }
+
         const form = document.getElementById('form');
         if (form) {
             form.addEventListener('submit', schedule.storeData);
         }
 
-        makeTable();
+        if (table) {
+            makeTable();
+        }
         schedule.determineWaterDays();
     },
 
@@ -41,12 +49,14 @@ const schedule = {
         // event.preventDefault();
         // console.log(event.target.flower);
 
+        const formSelections = [];
+
         // pushes checked vegetables into selectedPlants array
         for (let i = 0; i < event.target.veg.length; i++) {
             const checkbox = event.target.veg[i];
             if (checkbox.checked) {
                 const correspondingPlant = schedule.plants[i];
-                schedule.selectedPlants.push(correspondingPlant);
+                formSelections.push(correspondingPlant);
             }
         }
 
@@ -55,12 +65,12 @@ const schedule = {
             const checkbox = event.target.flower[i];
             if (checkbox.checked) {
                 const correspondingPlant = schedule.plants[i + 5];
-                schedule.selectedPlants.push(correspondingPlant);
+                formSelections.push(correspondingPlant);
             }
         }
 
-        localStorage.setItem('formInfo', JSON.stringify(schedule.selectedPlants));
-        console.log(schedule.selectedPlants);
+        localStorage.setItem('selectedPlants', JSON.stringify(formSelections));
+        console.log(formSelections);
     },
 
     determineWaterDays: function () {
