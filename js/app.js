@@ -38,8 +38,10 @@ const schedule = {
     },
 
     storeData: function(event) {
-        event.preventDefault();
-        console.log(event.target.veg);
+        // event.preventDefault();
+        // console.log(event.target.flower);
+
+        // pushes checked vegetables into selectedPlants array
         for (let i = 0; i < event.target.veg.length; i++) {
             const checkbox = event.target.veg[i];
             if (checkbox.checked) {
@@ -47,9 +49,18 @@ const schedule = {
                 schedule.selectedPlants.push(correspondingPlant);
             }
         }
+
+        // pushes checked flowers into selectedPlants array
+        for (let i = 0; i < event.target.flower.length; i++) {
+            const checkbox = event.target.flower[i];
+            if (checkbox.checked) {
+                const correspondingPlant = schedule.plants[i + 5];
+                schedule.selectedPlants.push(correspondingPlant);
+            }
+        }
+
         // localStorage.setItem
         console.log(schedule.selectedPlants);
-        console.log(schedule.plants);
     },
 
     determineWaterDays: function () {
