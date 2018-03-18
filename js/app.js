@@ -13,7 +13,7 @@ weekday[5] = "Friday";
 weekday[6] = "Saturday";
 
 var currentDay = weekday[day.getDay()];
-document.getElementById("day").innerHTML = currentDay;
+document.getElementById("schedule").innerHTML = currentDay;
 
 var table = document.getElementById("schedule");
 
