@@ -2,7 +2,7 @@
 
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-var d = new Date();
+var day = new Date();
 var weekday = new Array(7);
 weekday[0] =  "Sunday";
 weekday[1] = "Monday";
@@ -12,8 +12,8 @@ weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
 
-var n = weekday[d.getDay()];
-document.getElementById("day").innerHTML = n;
+var currentDay = weekday[day.getDay()];
+document.getElementById("day").innerHTML = currentDay;
 
 var table = document.getElementById("schedule");
 
@@ -69,9 +69,9 @@ function dayHeader() {
     var cellSpace = document.createElement("td");
     cellSpace.textContent = "";
     weekRow.appendChild(cellSpace);
-    for (var weekIndex = 0; weekIndex < daysOfWeek.length; weekIndex++) {
+    for (var weekIndex = 0; weekIndex < currentDay.length; weekIndex++) {
         var cellDay = document.createElement("td");
-        cellDay.textContent = daysOfWeek[weekIndex];
+        cellDay.textContent = currentDay[weekIndex];
         weekRow.appendChild(cellDay);
     }
 }
