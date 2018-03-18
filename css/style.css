@@ -43,6 +43,7 @@ article {
   border-radius: 5px;
 }
 
+
 h1, h3, p, ul, li {
   color: #FFF;
 }
@@ -53,7 +54,7 @@ h1, h3, p {
 }
 
 ul, li {
-  font-family: 'Taviraj', serif;
+  font-family: 'Proza Libre', sans-serif;
   list-style: none;
 }
 
