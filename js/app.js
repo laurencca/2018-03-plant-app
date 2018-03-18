@@ -59,23 +59,23 @@ const schedule = {
             }
         }
 
-        // localStorage.setItem
+        localStorage.setItem('formInfo', JSON.stringify(schedule.selectedPlants));
         console.log(schedule.selectedPlants);
     },
 
     determineWaterDays: function () {
         for (let i = 0; i < schedule.plants.length; i++) {
             if (schedule.plants[i].freqOfWatering === 1) {
-                console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0]);
+                // console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0]);
             }
             if (schedule.plants[i].freqOfWatering === 2) {
-                console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0], 'and', daysOfWeek[3]);
+                // console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0], 'and', daysOfWeek[3]);
             }
             if (schedule.plants[i].freqOfWatering === 3) {
-                console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0], daysOfWeek[2], 'and', daysOfWeek[5]);
+                // console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0], daysOfWeek[2], 'and', daysOfWeek[5]);
             }
             if (schedule.plants[i].freqOfWatering === 4) {
-                console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0], daysOfWeek[2], daysOfWeek[4], 'and', daysOfWeek[6]);
+                // console.log('water', schedule.plants[i].name, 'on', daysOfWeek[0], daysOfWeek[2], daysOfWeek[4], 'and', daysOfWeek[6]);
             }
         }
     }
@@ -96,7 +96,7 @@ function dayHeader() {
 }
 
 function makeTable() {  
-    console.log('make table');
+    // console.log('make table');
     table.textContent = "";
     dayHeader();
     for (var plantIndex = 0; plantIndex < schedule.plants.length; plantIndex++) {
