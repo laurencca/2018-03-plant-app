@@ -31,7 +31,7 @@ const schedule = {
         const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
         if (selectedPlants) {
             schedule.selectedPlants = selectedPlants;
-            console.log('local storage', localStorage.getItem('selectedPlants'));
+            // console.log('local storage', localStorage.getItem('selectedPlants'));
         }
 
         const form = document.getElementById('form');
@@ -106,17 +106,16 @@ function dayHeader() {
 }
 
 function makeTable() {  
-    // console.log('make table');
     table.textContent = "";
     dayHeader();
     for (var plantIndex = 0; plantIndex < schedule.selectedPlants.length; plantIndex++) {
         var plants = schedule.selectedPlants[plantIndex];
         var plantsRow = document.createElement("tr");
         var cell = document.createElement("th");
-        cell.textContent = schedule.selectedPlants.name;
+        cell.textContent = plants.name;
         plantsRow.appendChild(cell);
         table.appendChild(plantsRow);
-        }
+        }        
 }
 
 window.addEventListener('load', schedule.start)
