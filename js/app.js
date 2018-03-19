@@ -2,9 +2,21 @@
 
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+var day = new Date();
+var weekday = new Array(7);
+weekday[0] =  "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+
+// var currentDay = weekday[day.getDay()];
+
 var table = document.getElementById("schedule");
 
-function Plant (name, type, filepath, freqOfWatering) {
+function Plant (name, type, filePath, freqOfWatering) {
     this.name = name;
     this.type = type;
     // this.filePath = filePath;
@@ -25,7 +37,7 @@ const schedule = {
             new Plant('Rose', 'flower', '', 1),
             new Plant('Daylily', 'flower', '', 3),
             new Plant('Violet', 'flower', '', 2),
-            new Plant('Peony', 'flower', '', 1),                
+            new Plant('Peony', 'flower', '', 1),
         )
 
         const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
@@ -96,14 +108,15 @@ function dayHeader() {
     var cellSpace = document.createElement("th");
     cellSpace.textContent = "";
     weekRow.appendChild(cellSpace);
-    for (var weekIndex = 0; weekIndex < daysOfWeek.length; weekIndex++) {
-        var cellDay = document.createElement("th");
-        cellDay.textContent = daysOfWeek[weekIndex];
+    for (var weekIndex = 0; weekIndex < 7; weekIndex++) {
+        var cellDay = document.createElement("td");
+        cellDay.textContent = weekday[day.getDay()];
         weekRow.appendChild(cellDay);
+        day.setTime(day.getTime() + 86400000);
     }
 }
 
-function makeTable() {  
+function makeTable() {
     table.textContent = "";
     dayHeader();
     for (var plantIndex = 0; plantIndex < schedule.selectedPlants.length; plantIndex++) {
