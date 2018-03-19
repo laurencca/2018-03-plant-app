@@ -31,7 +31,6 @@ const schedule = {
         const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
         if (selectedPlants) {
             schedule.selectedPlants = selectedPlants;
-            // console.log('local storage', localStorage.getItem('selectedPlants'));
         }
 
         const form = document.getElementById('form');
@@ -47,11 +46,10 @@ const schedule = {
 
     storeData: function(event) {
         // event.preventDefault();
-        // console.log(event.target.flower);
 
         const formSelections = [];
 
-        // pushes checked vegetables into selectedPlants array
+        // pushes checked vegetables into formSelections array
         for (let i = 0; i < event.target.veg.length; i++) {
             const checkbox = event.target.veg[i];
             if (checkbox.checked) {
@@ -60,7 +58,7 @@ const schedule = {
             }
         }
 
-        // pushes checked flowers into selectedPlants array
+        // pushes checked flowers into formSelections array
         for (let i = 0; i < event.target.flower.length; i++) {
             const checkbox = event.target.flower[i];
             if (checkbox.checked) {
