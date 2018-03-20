@@ -3,6 +3,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   justify-content: space-between;
+  /* font-family: 'Proza Libre', sans-serif;   */
 }
 
 #weather {
@@ -36,16 +37,29 @@ nav li {
 section {
   display: flex;
   justify-content: center;
+  /* align-items: baseline; */
   padding: 5px;
   margin: 0;
-  padding: 0;
 }
 
-article {
+.article-aside aside, .article-aside article {
+  margin: 3px;
+}
+
+.article-aside aside {
+  margin-right: 20px;
+}
+
+.article-aside article {
   background: rgba(180, 180, 180, 0.5);
   border: 3px solid floralwhite;
   border-radius: 5px;
+  padding: 5px;
 }
+
+/* #water-article {
+flex-grow: 2;
+} */
 
 table {
   color: #FFF;
@@ -60,9 +74,14 @@ h1, h2, h3, p, table {
   text-align: center;
 }
 
-ul, li {
-  font-family: 'Proza Libre', sans-serif;
+#resources-list {
+  padding-left: 0;
   list-style: none;
+}
+
+li {
+  font-family: 'Proza Libre', sans-serif;
+  color: floralwhite;  
 }
 
 li a {
