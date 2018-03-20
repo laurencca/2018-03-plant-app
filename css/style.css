@@ -74,9 +74,14 @@ h1, h2, h3, p, table {
   text-align: center;
 }
 
+aside h2 {
+  padding-left: 0;
+}
+
 #resources-list {
   padding-left: 0;
   list-style: none;
+  width: 200px;
 }
 
 li {
