@@ -13,7 +13,7 @@ weekday[5] = "Friday";
 weekday[6] = "Saturday";
 
 var currentDay = weekday[day.getDay()];
-document.getElementById("schedule").innerHTML = currentDay;
+// document.getElementById("schedule").innerHTML = currentDay;
 
 var table = document.getElementById("schedule");
 
@@ -69,12 +69,15 @@ function dayHeader() {
     var cellSpace = document.createElement("td");
     cellSpace.textContent = "";
     weekRow.appendChild(cellSpace);
-    for (var weekIndex = 0; weekIndex < currentDay.length; weekIndex++) {
+    for (var weekIndex = 0; weekIndex < 7; weekIndex++) {
         var cellDay = document.createElement("td");
-        cellDay.textContent = currentDay[weekIndex];
+        cellDay.textContent = weekday[day.getDay()];
         weekRow.appendChild(cellDay);
+        day.setTime(day.getTime() + 86400000);
     }
 }
+
+8640000
 
 function makeTable() {
     table.textContent = "";

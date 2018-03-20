@@ -47,6 +47,10 @@ article {
   border-radius: 5px;
 }
 
+table {
+  color: #FFF;
+}
+
 h1, h2, h3, p, ul, li {
   color: #FFF;
 }
