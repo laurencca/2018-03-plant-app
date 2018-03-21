@@ -88,13 +88,8 @@ const schedule = {
 
 
     changeIcon: function(event) {
-        const image = document.getElementsByTagName('td');
-        for (let i = 0; i < event.target.src.length; i++) {
-            console.log(event.target.src[i]);
-            // if (event.target.src[i]) {
-                
-            // }
-        }
+        const src = event.target.src.replace('.png', 'G.png');
+        event.target.src = src;
     },
     
     getNextDayOfWeek: function(date, dayOfWeek) {
