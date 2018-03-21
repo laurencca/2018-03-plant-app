@@ -57,9 +57,9 @@ section {
   padding: 5px;
 }
 
-/* #water-article {
-flex-grow: 2;
-} */
+#native-article {
+  width: 865px;
+}
 
 table {
   color: #FFF;
@@ -81,7 +81,7 @@ aside h2 {
 #resources-list {
   padding-left: 0;
   list-style: none;
-  width: 200px;
+  width: 180px;
 }
 
 li {
