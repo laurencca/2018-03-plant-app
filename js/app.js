@@ -16,7 +16,7 @@ weekday[6] = "Saturday";
 
 var table = document.getElementById("schedule");
 
-function Plant (name, type, filePath, freqOfWatering) {
+function Plant (name, type, filePath, wateredFilePath, freqOfWatering) {
     this.name = name;
     this.type = type;
     this.filePath = filePath;
@@ -28,16 +28,16 @@ const schedule = {
     selectedPlants: [],
     start: function () {
         schedule.plants.push(
-            new Plant('Tomato', 'veg', 'images/tomato.png', 2),
-            new Plant('Lettuce', 'veg', 'images/tomato.png', 2),
-            new Plant('Peas', 'veg', 'images/tomato.png', 4),
-            new Plant('Corn', 'veg', 'images/tomato.png', 1),
-            new Plant('Squash', 'veg', 'images/tomato.png', 1),
-            new Plant('Iris', 'flower', 'images/tomato.png', 1),
-            new Plant('Rose', 'flower', 'images/tomato.png', 1),
-            new Plant('Daylily', 'flower', 'images/tomato.png', 3),
-            new Plant('Violet', 'flower', 'images/tomato.png', 2),
-            new Plant('Peony', 'flower', 'images/tomato.png', 1),
+            new Plant('Tomato', 'veg', 'images/tomato.png', 'images/tomatoG.png', 2),
+            new Plant('Lettuce', 'veg', 'images/tomato.png', '', 2),
+            new Plant('Peas', 'veg', 'images/tomato.png', '', 4),
+            new Plant('Corn', 'veg', 'images/tomato.png', '', 1),
+            new Plant('Squash', 'veg', 'images/tomato.png', '', 1),
+            new Plant('Iris', 'flower', 'images/tomato.png', '', 1),
+            new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 1),
+            new Plant('Daylily', 'flower', 'images/tomato.png', '', 3),
+            new Plant('Violet', 'flower', 'images/tomato.png', '', 2),
+            new Plant('Peony', 'flower', 'images/tomato.png', '', 1),
         )
         
         const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
@@ -87,9 +87,14 @@ const schedule = {
     },
 
 
-    changeIcon: function() {
+    changeIcon: function(event) {
         const image = document.getElementsByTagName('td');
-        console.log('listening');
+        for (let i = 0; i < event.target.src.length; i++) {
+            console.log(event.target.src[i]);
+            // if (event.target.src[i]) {
+                
+            // }
+        }
     },
     
     getNextDayOfWeek: function(date, dayOfWeek) {
