@@ -5,18 +5,6 @@ body {
   justify-content: space-between;
 }
 
-#weather {
-  background: rgba(180, 180, 180, 0.5);
-  border: 3px solid floralwhite;
-  border-radius: 5px;
-}
-
-/* #main-menu li {
-  display: inline;
-  align-content: center;
-  margin: 0 auto;
-} */
-
 nav ul {
   margin: auto;
   text-align: center;
@@ -36,15 +24,9 @@ nav li {
 section {
   display: flex;
   justify-content: center;
+  /* align-items: baseline; */
   padding: 5px;
   margin: 0;
-  padding: 0;
-}
-
-article {
-  background: rgba(180, 180, 180, 0.5);
-  border: 3px solid floralwhite;
-  border-radius: 5px;
 }
 
 table {
@@ -60,9 +42,98 @@ h1, h2, h3, p, table {
   text-align: center;
 }
 
-ul, li {
+h3 {
+  text-decoration: underline;
+}
+
+aside h2 {
+  padding-left: 0;
+}
+
+.article-aside aside, .article-aside article {
+  margin: 3px;
+}
+
+.article-aside aside {
+  margin-right: 20px;
+}
+
+.article-aside article {
+  background: rgba(180, 180, 180, 0.25);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#home-info {
+  background: rgba(180, 180, 180, 0.25);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
+  padding: 5px;
+  width: 865px;
+  margin: auto;
+  font-size: 20px;
+}
+
+#native-article {
+  width: 865px;
+}
+
+#form {
   font-family: 'Proza Libre', sans-serif;
+  background: rgba(180, 180, 180, 0.25);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
+  padding: 10px;
+  width: 500px;
+  margin: auto;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: white;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+input[type=submit] {
+    background-color: rgba(180, 180, 180, 0.25);
+    border: 3px solid floralwhite;
+    border-radius: 5px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+#weather {
+  background: rgba(180, 180, 180, 0.25);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
+}
+
+#resources-list {
+  padding-left: 0;
   list-style: none;
+  width: 180px;
+}
+
+li {
+  font-family: 'Proza Libre', sans-serif;
+  color: floralwhite;
 }
 
 li a {
