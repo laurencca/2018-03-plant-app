@@ -6,11 +6,7 @@ body {
   /* font-family: 'Proza Libre', sans-serif;   */
 }
 
-#weather {
-  background: rgba(180, 180, 180, 0.5);
-  border: 3px solid floralwhite;
-  border-radius: 5px;
-}
+
 
 /* #main-menu li {
   display: inline;
@@ -42,25 +38,6 @@ section {
   margin: 0;
 }
 
-.article-aside aside, .article-aside article {
-  margin: 3px;
-}
-
-.article-aside aside {
-  margin-right: 20px;
-}
-
-.article-aside article {
-  background: rgba(180, 180, 180, 0.5);
-  border: 3px solid floralwhite;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-#native-article {
-  width: 865px;
-}
-
 table {
   color: #FFF;
 }
@@ -78,6 +55,67 @@ aside h2 {
   padding-left: 0;
 }
 
+.article-aside aside, .article-aside article {
+  margin: 3px;
+}
+
+.article-aside aside {
+  margin-right: 20px;
+}
+
+.article-aside article {
+  background: rgba(180, 180, 180, 0.25);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#home-info {
+  background: rgba(180, 180, 180, 0.25);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
+  padding: 5px;
+  width: 865px;
+  margin: auto;
+  font-size: 20px;
+}
+
+#native-article {
+  width: 865px;
+}
+
+#form {
+  background: rgba(180, 180, 180, 0.25);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
+  padding: 10px;
+  width: 500px;
+  margin: auto;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+#weather {
+  background: rgba(180, 180, 180, 0.25);
+  border: 3px solid floralwhite;
+  border-radius: 5px;
+}
+
 #resources-list {
   padding-left: 0;
   list-style: none;
@@ -86,7 +124,7 @@ aside h2 {
 
 li {
   font-family: 'Proza Libre', sans-serif;
-  color: floralwhite;  
+  color: floralwhite;
 }
 
 li a {
