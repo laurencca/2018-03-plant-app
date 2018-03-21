@@ -28,16 +28,16 @@ const schedule = {
     selectedPlants: [],
     start: function () {
         schedule.plants.push(
-            new Plant('Tomato', 'veg', 'images/tomato.jpg', 2),
-            new Plant('Lettuce', 'veg', 'images/tomato.jpg', 2),
-            new Plant('Peas', 'veg', 'images/tomato.jpg', 4),
-            new Plant('Corn', 'veg', 'images/tomato.jpg', 1),
-            new Plant('Squash', 'veg', 'images/tomato.jpg', 1),
-            new Plant('Iris', 'flower', 'images/tomato.jpg', 1),
-            new Plant('Rose', 'flower', 'images/tomato.jpg', 1),
-            new Plant('Daylily', 'flower', 'images/tomato.jpg', 3),
-            new Plant('Violet', 'flower', 'images/tomato.jpg', 2),
-            new Plant('Peony', 'flower', 'images/tomato.jpg', 1),
+            new Plant('Tomato', 'veg', 'images/tomato.png', 2),
+            new Plant('Lettuce', 'veg', 'images/tomato.png', 2),
+            new Plant('Peas', 'veg', 'images/tomato.png', 4),
+            new Plant('Corn', 'veg', 'images/tomato.png', 1),
+            new Plant('Squash', 'veg', 'images/tomato.png', 1),
+            new Plant('Iris', 'flower', 'images/tomato.png', 1),
+            new Plant('Rose', 'flower', 'images/tomato.png', 1),
+            new Plant('Daylily', 'flower', 'images/tomato.png', 3),
+            new Plant('Violet', 'flower', 'images/tomato.png', 2),
+            new Plant('Peony', 'flower', 'images/tomato.png', 1),
         )
 
         const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
@@ -81,14 +81,14 @@ const schedule = {
         localStorage.setItem('selectedPlants', JSON.stringify(formSelections));
         console.log(formSelections);
     },
-
+    getNextDayOfWeek: function(date, dayOfWeek) {
+        var resultDate = new Date(date.getTime());
+        resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
+        return resultDate;
+    }
 }
 
-getNextDayOfWeek: function(date, dayOfWeek) {
-    var resultDate = new Date(date.getTime());
-    resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
-    return resultDate;
-}
+
 
 
 function dayHeader() {
