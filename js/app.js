@@ -87,6 +87,7 @@ const schedule = {
     },
 
 
+
     changeIcon: function(event) {
         const src = event.target.src.replace('.png', 'G.png');
         event.target.src = src;
@@ -98,6 +99,7 @@ const schedule = {
         return resultDate;
     }
 }
+
 
 function dayHeader() {
     var weekRow = document.createElement("tr");
