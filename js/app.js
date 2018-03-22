@@ -29,12 +29,12 @@ const schedule = {
             new Plant('Tomato', 'veg', 'images/tomato.png', 'images/tomatoG.png', 2),
             new Plant('Lettuce', 'veg', 'images/tomato.png', '', 2),
             new Plant('Peas', 'veg', 'images/pea.png', 'images/peaG.png', 4),
-            new Plant('Corn', 'veg', 'images/tomato.png', '', 1),
+            new Plant('Corn', 'veg', 'images/corn.png', 'images/cornG.png', 1),
             new Plant('Squash', 'veg', 'images/tomato.png', '', 1),
             new Plant('Iris', 'flower', 'images/iris.png', 'images/irisG.png', 1),
             new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 1),
             new Plant('Daylily', 'flower', 'images/daylily.png', 'images/daylilyG.png', 3),
-            new Plant('Violet', 'flower', 'images/tomato.png', '', 2),
+            new Plant('Violet', 'flower', 'images/violet.png', 'images/violetG.png', 2),
             new Plant('Peony', 'flower', 'images/peony.png', 'images/peonyG.png', 1),
 
         )
@@ -93,12 +93,12 @@ const schedule = {
         event.target.src = src.replace('G.png', '.png');
       }
     },
-
-    getNextDayOfWeek: function(date, dayOfWeek) {
-        var resultDate = new Date(date.getTime());
-        resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
-        return resultDate;
-    }
+    
+    // getNextDayOfWeek: function(date, dayOfWeek) {
+    //     var resultDate = new Date(date.getTime());
+    //     resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
+    //     return resultDate;
+    // }
 }
 
 function dayHeader() {
@@ -109,9 +109,11 @@ function dayHeader() {
     weekRow.appendChild(cellSpace);
     for (var weekIndex = 0; weekIndex < 7; weekIndex++) {
         var cellDay = document.createElement("td");
-        cellDay.textContent = weekday[day.getDay()];
+        // cellDay.textContent = weekday[day.getDay()];
+        // weekRow.appendChild(cellDay);
+        // day.setTime(day.getTime() + 86400000);
+        cellDay.textContent = weekday[weekIndex];
         weekRow.appendChild(cellDay);
-        day.setTime(day.getTime() + 86400000);
     }
 }
 
@@ -124,11 +126,12 @@ function makeTable() {
         var cell = document.createElement("th");
         cell.textContent = plants.name;
         plantsRow.appendChild(cell);
-        var img = document.createElement('img');
-        img.src = schedule.plants[plantIndex].filePath;
+
         for (var dayIndex = 0; dayIndex < weekday.length; dayIndex++) {
+            var img = document.createElement('img');
+            img.src = schedule.plants[plantIndex].filePath;
             var cell = document.createElement("td");
-            if (waterDays[schedule.plants[plantIndex].freqOfWatering-1][dayIndex] === true) {
+            if (waterDays[schedule.plants[plantIndex].freqOfWatering-1][dayIndex]) {
                 cell.appendChild(img);
             }
             plantsRow.appendChild(cell);
