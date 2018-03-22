@@ -12,8 +12,6 @@ weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
 
-// var currentDay = weekday[day.getDay()];
-
 var table = document.getElementById("schedule");
 
 function Plant (name, type, filePath, wateredFilePath, freqOfWatering) {
@@ -37,7 +35,6 @@ const schedule = {
             new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 1),
             new Plant('Daylily', 'flower', 'images/daylily.png', 'images/daylilyG.png', 3),
             new Plant('Violet', 'flower', 'images/tomato.png', '', 2),
-
             new Plant('Peony', 'flower', 'images/peony.png', 'images/peonyG.png', 1),
 
         )
