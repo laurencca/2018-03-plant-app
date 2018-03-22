@@ -146,3 +146,8 @@ li a {
 li a:hover {
   color: lightslategray;
 }
+
+img {
+  width: 125px;
+  height: 125px;
+}

@@ -30,14 +30,14 @@ const schedule = {
         schedule.plants.push(
             new Plant('Tomato', 'veg', 'images/tomato.png', 'images/tomatoG.png', 2),
             new Plant('Lettuce', 'veg', 'images/tomato.png', '', 2),
-            new Plant('Peas', 'veg', 'images/tomato.png', '', 4),
+            new Plant('Peas', 'veg', 'images/pea.png', 'images/peaG.png', 4),
             new Plant('Corn', 'veg', 'images/tomato.png', '', 1),
             new Plant('Squash', 'veg', 'images/tomato.png', '', 1),
-            new Plant('Iris', 'flower', 'images/tomato.png', '', 1),
+            new Plant('Iris', 'flower', 'images/iris.png', 'images/irisG.png', 1),
             new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 1),
-            new Plant('Daylily', 'flower', 'images/tomato.png', '', 3),
+            new Plant('Daylily', 'flower', 'images/daylily.png', 'images/daylilyG.png', 3),
             new Plant('Violet', 'flower', 'images/tomato.png', '', 2),
-            new Plant('Peony', 'flower', 'images/tomato.png', '', 1),
+            new Plant('Peony', 'flower', 'images/peony.png', 'images/peonyG.png', 1),
         )
         
         const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
