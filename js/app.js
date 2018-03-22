@@ -12,8 +12,6 @@ weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
 
-// var currentDay = weekday[day.getDay()];
-
 var table = document.getElementById("schedule");
 
 function Plant (name, type, filePath, wateredFilePath, freqOfWatering) {
@@ -37,21 +35,20 @@ const schedule = {
             new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 1),
             new Plant('Daylily', 'flower', 'images/daylily.png', 'images/daylilyG.png', 3),
             new Plant('Violet', 'flower', 'images/tomato.png', '', 2),
-
             new Plant('Peony', 'flower', 'images/peony.png', 'images/peonyG.png', 1),
 
         )
-        
+
         const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
         if (selectedPlants) {
             schedule.selectedPlants = selectedPlants;
         }
-        
+
         const form = document.getElementById('form');
         if (form) {
             form.addEventListener('submit', schedule.storeData);
         }
-        
+
         if (table) {
             makeTable();
         }
@@ -61,11 +58,11 @@ const schedule = {
         scheduleTable.addEventListener('click', schedule.changeIcon);
         }
     },
-    
+
     storeData: function(event) {
-        
+
         const formSelections = [];
-        
+
         // pushes checked vegetables into formSelections array
         for (let i = 0; i < event.target.veg.length; i++) {
             const checkbox = event.target.veg[i];
@@ -74,7 +71,7 @@ const schedule = {
                 formSelections.push(correspondingPlant);
             }
         }
-        
+
         // pushes checked flowers into formSelections array
         for (let i = 0; i < event.target.flower.length; i++) {
             const checkbox = event.target.flower[i];
@@ -83,16 +80,18 @@ const schedule = {
                 formSelections.push(correspondingPlant);
             }
         }
-        
+
         localStorage.setItem('selectedPlants', JSON.stringify(formSelections));
         console.log(formSelections);
     },
 
-
-
     changeIcon: function(event) {
-        const src = event.target.src.replace('.png', 'G.png');
-        event.target.src = src;
+        var src = event.target.src;
+        if (src.indexOf('G.png') === -1) {
+        event.target.src = src.replace('.png', 'G.png');
+      } else {
+        event.target.src = src.replace('G.png', '.png');
+      }
     },
     
     // getNextDayOfWeek: function(date, dayOfWeek) {
