@@ -12,8 +12,6 @@ weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
 
-// var currentDay = weekday[day.getDay()];
-
 var table = document.getElementById("schedule");
 
 function Plant (name, type, filePath, wateredFilePath, freqOfWatering) {
