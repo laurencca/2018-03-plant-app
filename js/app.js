@@ -37,7 +37,9 @@ const schedule = {
             new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 1),
             new Plant('Daylily', 'flower', 'images/daylily.png', 'images/daylilyG.png', 3),
             new Plant('Violet', 'flower', 'images/tomato.png', '', 2),
+
             new Plant('Peony', 'flower', 'images/peony.png', 'images/peonyG.png', 1),
+
         )
         
         const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
