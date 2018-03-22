@@ -24,7 +24,6 @@ nav li {
 section {
   display: flex;
   justify-content: center;
-  /* align-items: baseline; */
   padding: 5px;
   margin: 0;
 }
@@ -65,7 +64,7 @@ aside h2 {
   padding: 5px;
 }
 
-#home-info {
+#home-info, #schedule {
   background: rgba(180, 180, 180, 0.25);
   border: 3px solid floralwhite;
   border-radius: 5px;
@@ -73,6 +72,10 @@ aside h2 {
   width: 865px;
   margin: auto;
   font-size: 20px;
+}
+
+#schedule {
+  font-size: 18px;
 }
 
 #native-article {
@@ -145,4 +148,12 @@ li a {
 
 li a:hover {
   color: lightslategray;
+}
+
+img {
+  width: 60px;
+}
+
+tr {
+  height: 60px;
 }

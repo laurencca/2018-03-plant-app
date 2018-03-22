@@ -3,10 +3,6 @@ header {
   text-align: center;
 }
 
-th, td {
-  padding: 5px;
-}
-
 th {
   text-align: left;
 }
