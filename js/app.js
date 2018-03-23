@@ -101,8 +101,8 @@ const schedule = {
     },
 
     changeIcon: function(event) {
+        var wetPlants = [];
         var src = event.target.src;
-        
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
         localStorage.setItem("setGold", JSON.stringify(event.target.src)); }
@@ -114,6 +114,7 @@ const schedule = {
 
 function dayHeader() {
     var weekRow = document.createElement("tr");
+    // tr.setAttribute("id", "")
     table.appendChild(weekRow);
     var cellSpace = document.createElement("th");
     cellSpace.textContent = "";
@@ -143,7 +144,8 @@ function makeTable() {
             img.src = schedule.selectedPlants[plantIndex].filePath;
             var cell = document.createElement("td");
             if (waterDays[schedule.selectedPlants[plantIndex].freqOfWatering-1][dayIndex]) {
-                cell.setAttribute("id", "")
+                var id = schedule.selectedPlants[plantIndex].name + dayIndex;
+                img.setAttribute("id", id);
                 cell.appendChild(img);
             }
             plantsRow.appendChild(cell);
