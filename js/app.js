@@ -89,16 +89,11 @@ const schedule = {
         var src = event.target.src;
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
+        localStorage.setItem("setGold", JSON.stringify(event.target.src));
       } else {
         event.target.src = src.replace('G.png', '.png');
       }
     },
-    
-    // getNextDayOfWeek: function(date, dayOfWeek) {
-    //     var resultDate = new Date(date.getTime());
-    //     resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay() - 1) % 7 +1);
-    //     return resultDate;
-    // }
 }
 
 function dayHeader() {
