@@ -35,9 +35,8 @@ const schedule = {
             new Plant('Iris', 'flower', 'images/iris.png', 'images/irisG.png', 1),
             new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 1),
             new Plant('Daylily', 'flower', 'images/daylily.png', 'images/daylilyG.png', 3),
-            new Plant('Violet', 'flower', 'images/violet.png', 'images/violetG.png', 2),
-            new Plant('Peony', 'flower', 'images/peony.png', 'images/peonyG.png', 1),
-
+            new Plant('Violet', 'flower', 'images/violet.png', 'images/violetG.png', 4),
+            new Plant('Peony', 'flower', 'images/peony.png', 'images/peonyG.png', 3),
         )
 
         const selectedPlants = JSON.parse(localStorage.getItem('selectedPlants'));
@@ -67,6 +66,14 @@ const schedule = {
         }
     },
 
+    findPlantByName: function(plantName) {
+      for (var i = 0; i < schedule.plants.length; i++ ) {
+        if (plantName.toLowerCase() === schedule.plants[i].name.toLowerCase()) {
+          return schedule.plants[i];
+        }
+      }
+    },
+
     storeData: function(event) {
 
         const formSelections = [];
@@ -75,19 +82,19 @@ const schedule = {
         for (let i = 0; i < event.target.veg.length; i++) {
             const checkbox = event.target.veg[i];
             if (checkbox.checked) {
-                const correspondingPlant = schedule.plants[i];
-                formSelections.push(correspondingPlant);
+              var vegName = event.target.veg[i].value;
+              formSelections.push(schedule.findPlantByName(vegName));
             }
-        }
+          }
 
         // pushes checked flowers into formSelections array
         for (let i = 0; i < event.target.flower.length; i++) {
             const checkbox = event.target.flower[i];
             if (checkbox.checked) {
-                const correspondingPlant = schedule.plants[i + 5];
-                formSelections.push(correspondingPlant);
+              var flowerName = event.target.flower[i].value;
+              formSelections.push(schedule.findPlantByName(flowerName));
             }
-        }
+          }
 
         localStorage.setItem('selectedPlants', JSON.stringify(formSelections));
         console.log(formSelections);
@@ -133,9 +140,9 @@ function makeTable() {
 
         for (var dayIndex = 0; dayIndex < weekday.length; dayIndex++) {
             var img = document.createElement('img');
-            img.src = schedule.plants[plantIndex].filePath;
+            img.src = schedule.selectedPlants[plantIndex].filePath;
             var cell = document.createElement("td");
-            if (waterDays[schedule.plants[plantIndex].freqOfWatering-1][dayIndex]) {
+            if (waterDays[schedule.selectedPlants[plantIndex].freqOfWatering-1][dayIndex]) {
                 cell.setAttribute("id", "")
                 cell.appendChild(img);
             }
