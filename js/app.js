@@ -101,16 +101,19 @@ const schedule = {
     },
 
     changeIcon: function(event) {
-        var wetPlants = [];
         var src = event.target.src;
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
-        localStorage.setItem("setGold", JSON.stringify(event.target.src)); }
+        wetPlants.push(event.target.id);
+        localStorage.setItem("setGold", JSON.stringify(wetPlants)); }
     //   } else {
     //     event.target.src = src.replace('G.png', '.png');
     //   }
     },
 }
+
+var wetPlants = [];
+console.log(wetPlants);
 
 function dayHeader() {
     var weekRow = document.createElement("tr");
@@ -141,10 +144,18 @@ function makeTable() {
 
         for (var dayIndex = 0; dayIndex < weekday.length; dayIndex++) {
             var img = document.createElement('img');
-            img.src = schedule.selectedPlants[plantIndex].filePath;
+            var id = schedule.selectedPlants[plantIndex].name + dayIndex;
+
+            if (wetPlants.includes(id)) {
+                JSON.parse(localStorage.getItem("setGold"));
+                img.src = schedule.selectedPlants[plantIndex].wateredFilePath;
+                cell.appendChild(img.src);
+            } else {
+                img.src = schedule.selectedPlants[plantIndex].filePath;
+            }
+
             var cell = document.createElement("td");
             if (waterDays[schedule.selectedPlants[plantIndex].freqOfWatering-1][dayIndex]) {
-                var id = schedule.selectedPlants[plantIndex].name + dayIndex;
                 img.setAttribute("id", id);
                 cell.appendChild(img);
             }
