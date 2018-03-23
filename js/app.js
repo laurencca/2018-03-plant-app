@@ -146,10 +146,12 @@ function makeTable() {
             var img = document.createElement('img');
             var id = schedule.selectedPlants[plantIndex].name + dayIndex;
 
-            if (wetPlants.includes(id)) {
+            // if (wetPlants.includes(id)) {
+            if(localStorage.setGold.includes(id)) { // test line, changing above if statement
                 JSON.parse(localStorage.getItem("setGold"));
                 img.src = schedule.selectedPlants[plantIndex].wateredFilePath;
-                cell.appendChild(img.src);
+                // cell.appendChild(img.src);
+                cell.appendChild(img); // test lin 2, changing above appendChild
             } else {
                 img.src = schedule.selectedPlants[plantIndex].filePath;
             }
