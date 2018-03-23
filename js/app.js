@@ -104,12 +104,21 @@ const schedule = {
         var src = event.target.src;
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
-        wetPlants.push(event.target.id);
-        localStorage.setItem("setGold", JSON.stringify(wetPlants)); }
-    //   } else {
-    //     event.target.src = src.replace('G.png', '.png');
-    //   }
-    },
+        }
+        //   } else {
+        //     event.target.src = src.replace('G.png', '.png');
+        //   }
+
+        if (localStorage.getItem("setGold") == null) {
+            wetPlants.push(event.target.id);
+            localStorage.setItem("setGold", JSON.stringify(wetPlants));
+        } else {
+            var oldWetPlants = JSON.parse(localStorage.getItem("setGold")); // console not finding oldWetPlants
+            var newWetPlant = event.target.id;
+            oldWetPlants.push(newWetPlant);
+            localStorage.setItem("setGold", JSON.stringify(oldWetPlants));      
+        }
+    }
 }
 
 var wetPlants = [];
@@ -146,12 +155,10 @@ function makeTable() {
             var img = document.createElement('img');
             var id = schedule.selectedPlants[plantIndex].name + dayIndex;
 
-            // if (wetPlants.includes(id)) {
-            if(localStorage.setGold.includes(id)) { // test line, changing above if statement
+            if(localStorage.setGold.includes(id)) {
                 JSON.parse(localStorage.getItem("setGold"));
                 img.src = schedule.selectedPlants[plantIndex].wateredFilePath;
-                // cell.appendChild(img.src);
-                cell.appendChild(img); // test lin 2, changing above appendChild
+                cell.appendChild(img);
             } else {
                 img.src = schedule.selectedPlants[plantIndex].filePath;
             }
