@@ -18,6 +18,7 @@ function Plant (name, type, filePath, wateredFilePath, freqOfWatering) {
     this.name = name;
     this.type = type;
     this.filePath = filePath;
+    this.wateredFilePath = wateredFilePath;
     this.freqOfWatering = freqOfWatering;
 }
 
@@ -27,10 +28,10 @@ const schedule = {
     start: function () {
         schedule.plants.push(
             new Plant('Tomato', 'veg', 'images/tomato.png', 'images/tomatoG.png', 2),
-            new Plant('Lettuce', 'veg', 'images/tomato.png', '', 2),
+            new Plant('Lettuce', 'veg', 'images/lettuce.png', 'images/lettuceG.png', 2),
             new Plant('Peas', 'veg', 'images/pea.png', 'images/peaG.png', 4),
             new Plant('Corn', 'veg', 'images/corn.png', 'images/cornG.png', 1),
-            new Plant('Squash', 'veg', 'images/tomato.png', '', 1),
+            new Plant('Squash', 'veg', 'images/squash.png', 'images/squashG.png', 1),
             new Plant('Iris', 'flower', 'images/iris.png', 'images/irisG.png', 1),
             new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 1),
             new Plant('Daylily', 'flower', 'images/daylily.png', 'images/daylilyG.png', 3),
@@ -52,6 +53,13 @@ const schedule = {
         if (table) {
             makeTable();
         }
+
+
+
+        // var goldIcons = JSON.parse(localStorage.getItem("setGold"));
+        // if (goldIcons) {
+        //     schedule.changeIcon();
+        // }
 
         const scheduleTable = document.getElementById('schedule');
         if (scheduleTable) {
@@ -87,12 +95,13 @@ const schedule = {
 
     changeIcon: function(event) {
         var src = event.target.src;
+        
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
-        localStorage.setItem("setGold", JSON.stringify(event.target.src));
-      } else {
-        event.target.src = src.replace('G.png', '.png');
-      }
+        localStorage.setItem("setGold", JSON.stringify(event.target.src)); }
+    //   } else {
+    //     event.target.src = src.replace('G.png', '.png');
+    //   }
     },
 }
 
@@ -127,6 +136,7 @@ function makeTable() {
             img.src = schedule.plants[plantIndex].filePath;
             var cell = document.createElement("td");
             if (waterDays[schedule.plants[plantIndex].freqOfWatering-1][dayIndex]) {
+                cell.setAttribute("id", "")
                 cell.appendChild(img);
             }
             plantsRow.appendChild(cell);
