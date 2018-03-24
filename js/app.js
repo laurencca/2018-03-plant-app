@@ -1,9 +1,16 @@
 'use strict';
 
-const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-var timeLastWatered;
 var lastWatered;
+var timeLastWatered;
+var wetPlants = [];
+var waterDays = [
+    [true, false, false, false, false, false, false],
+    [true, false, false, true, false, false, false],
+    [true, false, true, false, false, true, false],
+    [true, false, true, false, true, false, true],
+]
+var table = document.getElementById("schedule");
+
 var day = new Date();
 var weekday = new Array(7);
 weekday[0] = "Sunday";
@@ -13,8 +20,6 @@ weekday[3] = "Wednesday";
 weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
-
-var table = document.getElementById("schedule");
 
 function Plant (name, type, filePath, wateredFilePath, freqOfWatering) {
     this.name = name;
@@ -55,19 +60,13 @@ const schedule = {
             makeTable();
         }
 
-
-
-        // var goldIcons = JSON.parse(localStorage.getItem("setGold"));
-        // if (goldIcons) {
-        //     schedule.changeIcon();
-        // }
-
         const scheduleTable = document.getElementById('schedule');
         if (scheduleTable) {
         scheduleTable.addEventListener('click', schedule.changeIcon);
         }
     },
 
+    // assures correct plant image appears
     findPlantByName: function(plantName) {
       for (var i = 0; i < schedule.plants.length; i++ ) {
         if (plantName.toLowerCase() === schedule.plants[i].name.toLowerCase()) {
@@ -76,6 +75,7 @@ const schedule = {
       }
     },
 
+    // stores data that will appear in watering schedule table
     storeData: function(event) {
 
         const formSelections = [];
@@ -102,8 +102,8 @@ const schedule = {
         console.log(formSelections);
     },
 
+    // changes icon to gold on click
     changeIcon: function(event) {
-        // changes icon to gold on click
         var src = event.target.src;
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
@@ -113,8 +113,9 @@ const schedule = {
         timeLastWatered = day.getTime();
         localStorage.setItem("timeLastWatered", JSON.stringify(timeLastWatered));
         }
-        
-        /*else {      // changes icon back to normal colors, but reverts to gold on refresh
+
+        // changes icon back to normal colors, but reverts to gold on refresh
+        /*else {
             event.target.src = src.replace('G.png', '.png');
         }*/
 
@@ -122,6 +123,7 @@ const schedule = {
         if (localStorage.getItem("setGold") == null) {
             wetPlants.push(event.target.id);
             localStorage.setItem("setGold", JSON.stringify(wetPlants));
+
         // adds newly clicked gold images to gold images already in local storage
         } else {
             var oldWetPlants = JSON.parse(localStorage.getItem("setGold"));
@@ -131,6 +133,7 @@ const schedule = {
         }
     },
 
+    // removes gold images after user uses the site after the beginning of the next week, or after they use after over a week has passed
     clearGold: function() {
         JSON.parse(localStorage.getItem("lastWatered"));
         JSON.parse(localStorage.getItem("timeLastWatered"));
@@ -140,26 +143,21 @@ const schedule = {
     }
 }
 
-var wetPlants = [];
-console.log(wetPlants);
-
+// adds days of the week as table header
 function dayHeader() {
     var weekRow = document.createElement("tr");
-    // tr.setAttribute("id", "")
     table.appendChild(weekRow);
     var cellSpace = document.createElement("th");
     cellSpace.textContent = "";
     weekRow.appendChild(cellSpace);
     for (var weekIndex = 0; weekIndex < 7; weekIndex++) {
         var cellDay = document.createElement("td");
-        // cellDay.textContent = weekday[day.getDay()];
-        // weekRow.appendChild(cellDay);
-        // day.setTime(day.getTime() + 86400000);
         cellDay.textContent = weekday[weekIndex];
         weekRow.appendChild(cellDay);
     }
 }
 
+// adds plant images to table cells
 function makeTable() {
     table.textContent = "";
     dayHeader();
@@ -185,16 +183,6 @@ function makeTable() {
                 img.src = schedule.selectedPlants[plantIndex].filePath;
             }
 
-            // if (localStorage.setItem.includes(id)) ***cut from line 160 - made everything gold
-
-            // if(localStorage.setGold.includes(id)) {
-            //     JSON.parse(localStorage.getItem("setGold"));
-            //     img.src = schedule.selectedPlants[plantIndex].wateredFilePath;
-            //     cell.appendChild(img);
-            // } else {
-            //     img.src = schedule.selectedPlants[plantIndex].filePath;
-            // }
-
             var cell = document.createElement("td");
             if (waterDays[schedule.selectedPlants[plantIndex].freqOfWatering-1][dayIndex]) {
                 img.setAttribute("id", id);
@@ -205,12 +193,5 @@ function makeTable() {
         table.appendChild(plantsRow);
     }
 }
-
-var waterDays = [
-  [true, false, false, false, false, false, false],
-  [true, false, false, true, false, false, false],
-  [true, false, true, false, false, true, false],
-  [true, false, true, false, true, false, true],
-]
 
 window.addEventListener('load', schedule.start)
