@@ -107,10 +107,11 @@ const schedule = {
         var src = event.target.src;
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
-        // date clicked saved in local storage
+        // day and time clicked saved in local storage
         lastWatered = day.getDay();
         localStorage.setItem("lastWatered", JSON.stringify(lastWatered));
         timeLastWatered = day.getTime();
+        localStorage.setItem("timeLastWatered", JSON.stringify(timeLastWatered));
         }
         
         /*else {      // changes icon back to normal colors, but reverts to gold on refresh
@@ -132,7 +133,8 @@ const schedule = {
 
     clearGold: function() {
         JSON.parse(localStorage.getItem("lastWatered"));
-        if (day.getDay() < lastWatered) {
+        JSON.parse(localStorage.getItem("timeLastWatered"));
+        if ((day.getDay() < lastWatered) || (day.getTime() >= (timeLastWatered + (7 * 86400000)))) {
             localStorage.removeItem("setGold");
         }
     }
