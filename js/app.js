@@ -101,22 +101,35 @@ const schedule = {
     },
 
     changeIcon: function(event) {
+        // changes icon to gold on click
         var src = event.target.src;
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
+        // date clicked saved in local storage
+        localStorage.setItem("lastWatered", JSON.stringify(day));
         }
-        //   } else {
-        //     event.target.src = src.replace('G.png', '.png');
-        //   }
+        
+        /*else {      // changes icon back to normal colors, but reverts to gold on refresh
+            event.target.src = src.replace('G.png', '.png');
+        }*/
 
+        // stores gold image id in local storage
         if (localStorage.getItem("setGold") == null) {
             wetPlants.push(event.target.id);
             localStorage.setItem("setGold", JSON.stringify(wetPlants));
+        // adds newly clicked gold images to gold images already in local storage
         } else {
-            var oldWetPlants = JSON.parse(localStorage.getItem("setGold")); // console not finding oldWetPlants
+            var oldWetPlants = JSON.parse(localStorage.getItem("setGold"));
             var newWetPlant = event.target.id;
             oldWetPlants.push(newWetPlant);
             localStorage.setItem("setGold", JSON.stringify(oldWetPlants));      
+        }
+    },
+
+    clearGold: function() {
+
+        if (weekday.getDay() === 0) {
+            localStorage.setGold.clear();
         }
     }
 }
