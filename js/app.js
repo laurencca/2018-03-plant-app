@@ -155,13 +155,26 @@ function makeTable() {
             var img = document.createElement('img');
             var id = schedule.selectedPlants[plantIndex].name + dayIndex;
 
-            if(localStorage.setGold.includes(id)) {
+            if (localStorage.getItem("setGold") == null) {
+                img.src = schedule.selectedPlants[plantIndex].filePath;                
+            }
+            if (localStorage.setGold.includes(id)) {
                 JSON.parse(localStorage.getItem("setGold"));
                 img.src = schedule.selectedPlants[plantIndex].wateredFilePath;
                 cell.appendChild(img);
             } else {
                 img.src = schedule.selectedPlants[plantIndex].filePath;
             }
+
+            // if (localStorage.setItem.includes(id)) ***cut from line 160 - made everything gold
+
+            // if(localStorage.setGold.includes(id)) {
+            //     JSON.parse(localStorage.getItem("setGold"));
+            //     img.src = schedule.selectedPlants[plantIndex].wateredFilePath;
+            //     cell.appendChild(img);
+            // } else {
+            //     img.src = schedule.selectedPlants[plantIndex].filePath;
+            // }
 
             var cell = document.createElement("td");
             if (waterDays[schedule.selectedPlants[plantIndex].freqOfWatering-1][dayIndex]) {
