@@ -129,7 +129,7 @@ const schedule = {
     },
 
     clearGold: function() {
-
+        JSON.parse(localStorage.getItem("lastWatered"));
         if (day.getDay() < lastWatered) {
             localStorage.removeItem("setGold");
         }
