@@ -170,8 +170,7 @@ function makeTable() {
 
             if (localStorage.getItem("setGold") == null) {
                 img.src = schedule.selectedPlants[plantIndex].filePath;                
-            }
-            if (localStorage.setGold.includes(id)) {
+            } else if (localStorage.setGold.includes(id)) {
                 JSON.parse(localStorage.getItem("setGold"));
                 img.src = schedule.selectedPlants[plantIndex].wateredFilePath;
                 cell.appendChild(img);
