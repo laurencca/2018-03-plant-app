@@ -2,6 +2,7 @@
 
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
+var lastWatered;
 var day = new Date();
 var weekday = new Array(7);
 weekday[0] = "Sunday";
@@ -106,7 +107,8 @@ const schedule = {
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
         // date clicked saved in local storage
-        localStorage.setItem("lastWatered", JSON.stringify(day));
+        lastWatered = day.getDay();
+        localStorage.setItem("lastWatered", JSON.stringify(lastWatered));
         }
         
         /*else {      // changes icon back to normal colors, but reverts to gold on refresh
