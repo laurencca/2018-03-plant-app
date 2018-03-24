@@ -130,8 +130,8 @@ const schedule = {
 
     clearGold: function() {
 
-        if (weekday.getDay() === 0) {
-            localStorage.setGold.clear();
+        if (day.getDay() < lastWatered) {
+            localStorage.removeItem("setGold");
         }
     }
 }
@@ -159,6 +159,7 @@ function dayHeader() {
 function makeTable() {
     table.textContent = "";
     dayHeader();
+    schedule.clearGold();
     for (var plantIndex = 0; plantIndex < schedule.selectedPlants.length; plantIndex++) {
         var plants = schedule.selectedPlants[plantIndex];
         var plantsRow = document.createElement("tr");
