@@ -108,9 +108,9 @@ const schedule = {
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
         // day and time clicked saved in local storage
-        lastWatered = day.getDay();
+        var lastWatered = day.getDay();
         localStorage.setItem("lastWatered", JSON.stringify(lastWatered));
-        timeLastWatered = day.getTime();
+        var timeLastWatered = day.getTime();
         localStorage.setItem("timeLastWatered", JSON.stringify(timeLastWatered));
         }
 
@@ -204,6 +204,13 @@ function makeTable() {
         }
         table.appendChild(plantsRow);
     }
+}
+
+function makeLastWeek() {
+    var timeLastWatered = JSON.parse(localStorage.getItem("timeLastWatered"));
+    var lastWatered = new Date(timeLastWatered);
+    lastWatered.setDate(20);
+    localStorage.setItem("timeLastWatered", JSON.stringify(lastWatered.getTime()));
 }
 
 window.addEventListener('load', schedule.start)
