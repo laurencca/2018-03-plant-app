@@ -1,7 +1,5 @@
 'use strict';
 
-// var lastWatered;
-// var timeLastWatered;
 var wetPlants = [];
 var waterDays = [
     [true, false, false, false, false, false, false],
@@ -114,11 +112,6 @@ const schedule = {
         localStorage.setItem("timeLastWatered", JSON.stringify(timeLastWatered));
         }
 
-        // changes icon back to normal colors, but reverts to gold on refresh
-        /*else {
-            event.target.src = src.replace('G.png', '.png');
-        }*/
-
         // stores gold image id in local storage
         if (localStorage.getItem("setGold") == null) {
             wetPlants.push(event.target.id);
@@ -133,6 +126,7 @@ const schedule = {
         }
     },
 
+    // makes midnight on Sunday available to clearGold function
     getSunday: function() {
         var tempDate = new Date();
         var currentDay = tempDate.getDay();
@@ -206,6 +200,7 @@ function makeTable() {
     }
 }
 
+// to demonstrate how clearGold resets the plant icons after the beginning of a new week
 function makeLastWeek() {
     var timeLastWatered = JSON.parse(localStorage.getItem("timeLastWatered"));
     var lastWatered = new Date(timeLastWatered);
