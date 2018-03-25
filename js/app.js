@@ -1,7 +1,7 @@
 'use strict';
 
-var lastWatered;
-var timeLastWatered;
+// var lastWatered;
+// var timeLastWatered;
 var wetPlants = [];
 var waterDays = [
     [true, false, false, false, false, false, false],
@@ -108,9 +108,9 @@ const schedule = {
         if (src.indexOf('G.png') === -1) {
         event.target.src = src.replace('.png', 'G.png');
         // day and time clicked saved in local storage
-        lastWatered = day.getDay();
+        var lastWatered = day.getDay();
         localStorage.setItem("lastWatered", JSON.stringify(lastWatered));
-        timeLastWatered = day.getTime();
+        var timeLastWatered = day.getTime();
         localStorage.setItem("timeLastWatered", JSON.stringify(timeLastWatered));
         }
 
@@ -133,11 +133,23 @@ const schedule = {
         }
     },
 
-    // removes gold images after user uses the site after the beginning of the next week, or after they use after over a week has passed
+    getSunday: function() {
+        var tempDate = new Date();
+        var currentDay = tempDate.getDay();
+        var newDay = tempDate.getDate() - currentDay;
+        tempDate.setDate(newDay);
+        tempDate.setHours(0);
+        tempDate.setMinutes(0);
+        tempDate.setSeconds(0);
+        return tempDate;
+    },
+    
+    // removes gold images after user uses the site after the beginning of the next week
     clearGold: function() {
-        JSON.parse(localStorage.getItem("lastWatered"));
-        JSON.parse(localStorage.getItem("timeLastWatered"));
-        if ((day.getDay() < lastWatered) || (day.getTime() >= (timeLastWatered + (7 * 86400000)))) {
+        var lastWatered = JSON.parse(localStorage.getItem("lastWatered"));
+        var timeLastWatered = JSON.parse(localStorage.getItem("timeLastWatered"));
+        
+        if (timeLastWatered < schedule.getSunday()) {
             localStorage.removeItem("setGold");
         }
     }
@@ -192,6 +204,13 @@ function makeTable() {
         }
         table.appendChild(plantsRow);
     }
+}
+
+function makeLastWeek() {
+    var timeLastWatered = JSON.parse(localStorage.getItem("timeLastWatered"));
+    var lastWatered = new Date(timeLastWatered);
+    lastWatered.setDate(20);
+    localStorage.setItem("timeLastWatered", JSON.stringify(lastWatered.getTime()));
 }
 
 window.addEventListener('load', schedule.start)
