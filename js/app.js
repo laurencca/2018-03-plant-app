@@ -1,7 +1,7 @@
 'use strict';
 
-var lastWatered;
-var timeLastWatered;
+// var lastWatered;
+// var timeLastWatered;
 var wetPlants = [];
 var waterDays = [
     [true, false, false, false, false, false, false],
@@ -133,11 +133,23 @@ const schedule = {
         }
     },
 
-    // removes gold images after user uses the site after the beginning of the next week, or after they use after over a week has passed
+    getSunday: function() {
+        var tempDate = new Date();
+        var currentDay = tempDate.getDay();
+        var newDay = tempDate.getDate() - currentDay;
+        tempDate.setDate(newDay);
+        tempDate.setHours(0);
+        tempDate.setMinutes(0);
+        tempDate.setSeconds(0);
+        return tempDate;
+    },
+    
+    // removes gold images after user uses the site after the beginning of the next week
     clearGold: function() {
-        JSON.parse(localStorage.getItem("lastWatered"));
-        JSON.parse(localStorage.getItem("timeLastWatered"));
-        if ((day.getDay() < lastWatered) || (day.getTime() >= (timeLastWatered + (7 * 86400000)))) {
+        var lastWatered = JSON.parse(localStorage.getItem("lastWatered"));
+        var timeLastWatered = JSON.parse(localStorage.getItem("timeLastWatered"));
+        
+        if (timeLastWatered < schedule.getSunday()) {
             localStorage.removeItem("setGold");
         }
     }
