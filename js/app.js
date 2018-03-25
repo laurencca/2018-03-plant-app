@@ -35,12 +35,12 @@ const schedule = {
     start: function () {
         schedule.plants.push(
             new Plant('Tomato', 'veg', 'images/tomato.png', 'images/tomatoG.png', 2),
-            new Plant('Lettuce', 'veg', 'images/lettuce.png', 'images/lettuceG.png', 2),
+            new Plant('Lettuce', 'veg', 'images/lettuce.png', 'images/lettuceG.png', 3),
             new Plant('Peas', 'veg', 'images/pea.png', 'images/peaG.png', 4),
-            new Plant('Corn', 'veg', 'images/corn.png', 'images/cornG.png', 1),
-            new Plant('Squash', 'veg', 'images/squash.png', 'images/squashG.png', 1),
-            new Plant('Iris', 'flower', 'images/iris.png', 'images/irisG.png', 1),
-            new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 1),
+            new Plant('Corn', 'veg', 'images/corn.png', 'images/cornG.png', 3),
+            new Plant('Squash', 'veg', 'images/squash.png', 'images/squashG.png', 2),
+            new Plant('Iris', 'flower', 'images/iris.png', 'images/irisG.png', 4),
+            new Plant('Rose', 'flower', 'images/rose.png', 'images/roseG.png', 2),
             new Plant('Daylily', 'flower', 'images/daylily.png', 'images/daylilyG.png', 3),
             new Plant('Violet', 'flower', 'images/violet.png', 'images/violetG.png', 4),
             new Plant('Peony', 'flower', 'images/peony.png', 'images/peonyG.png', 3),
@@ -129,7 +129,7 @@ const schedule = {
             var oldWetPlants = JSON.parse(localStorage.getItem("setGold"));
             var newWetPlant = event.target.id;
             oldWetPlants.push(newWetPlant);
-            localStorage.setItem("setGold", JSON.stringify(oldWetPlants));      
+            localStorage.setItem("setGold", JSON.stringify(oldWetPlants));
         }
     },
 
@@ -143,12 +143,12 @@ const schedule = {
         tempDate.setSeconds(0);
         return tempDate;
     },
-    
+
     // removes gold images after user uses the site after the beginning of the next week
     clearGold: function() {
         var lastWatered = JSON.parse(localStorage.getItem("lastWatered"));
         var timeLastWatered = JSON.parse(localStorage.getItem("timeLastWatered"));
-        
+
         if (timeLastWatered < schedule.getSunday()) {
             localStorage.removeItem("setGold");
         }
@@ -186,7 +186,7 @@ function makeTable() {
             var id = schedule.selectedPlants[plantIndex].name + dayIndex;
 
             if (localStorage.getItem("setGold") == null) {
-                img.src = schedule.selectedPlants[plantIndex].filePath;                
+                img.src = schedule.selectedPlants[plantIndex].filePath;
             } else if (localStorage.setGold.includes(id)) {
                 JSON.parse(localStorage.getItem("setGold"));
                 img.src = schedule.selectedPlants[plantIndex].wateredFilePath;
