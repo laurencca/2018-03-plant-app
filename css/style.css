@@ -65,14 +65,20 @@ aside h2 {
   padding: 5px;
 }
 
-#home-info, #schedule {
+#home-info, #schedule, #schedule-instructions {
   background: rgba(180, 180, 180, 0.25);
   border: 3px solid floralwhite;
   border-radius: 5px;
   padding: 5px;
-  width: 865px;
+  /* width: 865px; */
+  width: 75%;
   margin: auto;
   font-size: 20px;
+}
+
+#schedule-instructions {
+  width: 60%;
+  margin-bottom: 15px;
 }
 
 #schedule {
