@@ -42,7 +42,7 @@ h1, h2, h3, p, table {
   text-align: center;
 }
 
-h3 {
+.underline {
   text-decoration: underline;
 }
 
